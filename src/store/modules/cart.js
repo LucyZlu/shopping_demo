@@ -24,7 +24,7 @@ const getters = {
 
   cartTotalPrice: (state, getters) => {
     return getters.cartProducts.reduce((total, product) =>
-      total + product.price * product.quantity,0)
+      total + product.price * product.quantity,0)//第二个参数必须指定，因为cartProducts最开始是空数组
   }
 }
 
@@ -57,6 +57,7 @@ const actions = {
       }
       // remove 1 item from stock
       commit('decrementProductInventory', { id: product.id })
+      alert("成功添加商品到购物车！");
     }
   }
 }
