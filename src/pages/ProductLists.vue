@@ -2,7 +2,7 @@
     <ul class="product">
         <li v-for="product in products">
             <div class="container">
-                <img :src="imagePath+product.src">
+                <img :src="imagePath+product.src" :alt="product.src">
             </div>
             {{product.title}}-{{product.price}}
             <br>
