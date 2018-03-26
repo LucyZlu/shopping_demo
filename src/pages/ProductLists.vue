@@ -1,12 +1,9 @@
 <template>
     <ul class="product">
         <li v-for="product in products">
-            <div class="container">
-                <img :src="imagePath+product.src" :alt="product.src" />
-            </div>
-            {{product.title}}-{{product.price}}
-            <br>
-            <button type="button" @click="addProductToCart(product)">
+            <img :src="imagePath+product.src" :alt="product.src">
+            <br> {{product.title}}-{{product.price}}
+            <br><button type="button" @click="addProductToCart(product)">
                 添加到购物车
             </button>
         </li>
@@ -25,6 +22,7 @@
         }),
         methods: mapActions(["addProductToCart"]),
         created() {
+            console.log("yes");
             this.$store.dispatch('getAllProducts')//在组件中使用 this.$store.dispatch('xxx') 分发 action
         }
     };
@@ -41,11 +39,6 @@
     .product li {
         display: block;
         text-align: center;
-    }
-
-    .container {
-        text-align: center;
-        vertical-align: middle;
     }
 
     img {
